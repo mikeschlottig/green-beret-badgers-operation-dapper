@@ -1,17 +1,19 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { OPERATIONS_LOG } from "@/lib/data";
+import { PORTFOLIO_ITEMS } from "@/lib/data";
 import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { TacticalButton } from "@/components/ui/retro-effects";
 export function Operations() {
   return (
-    <section id="ops" className="py-24 border-t border-terminal-green/20">
+    <section id="ops" className="py-12 md:py-24 border-t border-terminal-green/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-16">
           <h2 className="text-4xl font-display uppercase tracking-tighter italic">Mission Logs</h2>
           <div className="text-terminal-green/40 font-mono text-xs uppercase">Decrypted Operations History</div>
         </div>
         <div className="space-y-4">
-          {OPERATIONS_LOG.map((op, idx) => (
+          {PORTFOLIO_ITEMS.map((op, idx) => (
             <motion.div
               key={op.id}
               initial={{ opacity: 0, x: -20 }}
@@ -35,19 +37,24 @@ export function Operations() {
             </motion.div>
           ))}
         </div>
-        <div className="mt-24 p-12 border-4 border-dashed border-terminal-green/20 text-center space-y-6">
-          <h3 className="text-2xl font-display uppercase">Recruitment Terminal</h3>
-          <p className="max-w-md mx-auto text-terminal-green/60 text-sm">
-            ARE YOU CAPABLE OF MAINTAINING ABSOLUTE STEALTH UNDER FIRE? 
-            THE BADGERS ARE ALWAYS LOOKING FOR FRESH BLOOD.
-          </p>
-          <div className="flex items-center justify-center gap-4">
-            <span className="text-terminal-green animate-blink">_</span>
-            <input 
-              type="email" 
-              placeholder="ENTER SECURE EMAIL" 
-              className="bg-transparent border-b-2 border-terminal-green p-2 focus:outline-none placeholder:text-terminal-green/20 uppercase"
-            />
+        <div className="mt-24 p-8 md:p-12 border-4 border-dashed border-terminal-green/20 text-center space-y-8 bg-terminal-dim/5">
+          <div className="space-y-4">
+            <h3 className="text-2xl font-display uppercase">Recruitment Terminal</h3>
+            <p className="max-w-md mx-auto text-terminal-green/60 text-sm font-mono">
+              ARE YOU CAPABLE OF MAINTAINING ABSOLUTE STEALTH UNDER FIRE?
+              THE BADGERS ARE ALWAYS LOOKING FOR FRESH BLOOD.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-xl mx-auto">
+            <div className="relative w-full flex items-center gap-2">
+              <span className="text-terminal-green animate-blink font-mono">_</span>
+              <Input
+                type="email"
+                placeholder="ENTER SECURE EMAIL"
+                className="bg-transparent border-0 border-b-2 border-terminal-green rounded-none px-2 py-6 focus-visible:ring-0 placeholder:text-terminal-green/20 uppercase font-mono h-12"
+              />
+            </div>
+            <TacticalButton className="w-full sm:w-auto h-12 px-8">ENLIST_</TacticalButton>
           </div>
         </div>
       </div>

@@ -44,7 +44,7 @@ export const SQUAD_MEMBERS: SquadMember[] = [
     name: "Kat 'Claw' Squirrel",
     callsign: "RAZOR",
     role: "Heavy Assault",
-    specialty: "Muscular CQC Specialist",
+    specialty: "CQC Specialist",
     stats: { power: 88, speed: 70, stealth: 82 },
     image: "https://images.unsplash.com/photo-1540573133985-87b6da6d54a9?q=80&w=400&h=500&auto=format&fit=crop"
   },
@@ -95,6 +95,7 @@ export const PORTFOLIO_ITEMS = [
     metrics: { stealth: "PENDING", casualties: "N/A", data: "N/A" }
   }
 ];
+export const OPERATIONS_LOG = PORTFOLIO_ITEMS;
 export const TESTIMONIALS = [
   {
     id: "1",

@@ -24,9 +24,12 @@ export function TypewriterText({ text, speed = 50 }: { text: string; speed?: num
   useEffect(() => {
     let i = 0;
     const timer = setInterval(() => {
-      setDisplayed(text.substring(0, i));
-      i++;
-      if (i > text.length) clearInterval(timer);
+      if (i <= text.length) {
+        setDisplayed(text.substring(0, i));
+        i++;
+      } else {
+        clearInterval(timer);
+      }
     }, speed);
     return () => clearInterval(timer);
   }, [text, speed]);
@@ -37,12 +40,16 @@ export function TypewriterText({ text, speed = 50 }: { text: string; speed?: num
     </span>
   );
 }
+type TacticalButtonProps = Omit<HTMLMotionProps<"button">, "children"> & {
+  children: React.ReactNode;
+  variant?: "default" | "alert";
+};
 export function TacticalButton({
   children,
   className,
   variant = "default",
   ...props
-}: HTMLMotionProps<"button"> & { variant?: "default" | "alert" }) {
+}: TacticalButtonProps) {
   return (
     <motion.button
       whileHover={{ scale: 1.02 }}
@@ -57,7 +64,6 @@ export function TacticalButton({
       {...props}
     >
       <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-200" />
-      {/* Scanline hover effect */}
       <div className="absolute top-0 left-0 w-full h-[1px] bg-white/40 -translate-y-full group-hover:animate-scanline-scroll pointer-events-none opacity-0 group-hover:opacity-100" />
       <span className="relative z-10">{children}</span>
     </motion.button>
