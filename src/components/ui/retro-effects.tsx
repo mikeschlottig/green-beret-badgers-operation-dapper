@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, HTMLMotionProps } from "framer-motion";
 import { cn } from "@/lib/utils";
 interface GlitchTextProps {
   text: string;
@@ -24,7 +24,7 @@ export function TypewriterText({ text, speed = 50 }: { text: string; speed?: num
   useEffect(() => {
     let i = 0;
     const timer = setInterval(() => {
-      setDisplayed((prev) => text.substring(0, i));
+      setDisplayed(text.substring(0, i));
       i++;
       if (i > text.length) clearInterval(timer);
     }, speed);
@@ -37,26 +37,28 @@ export function TypewriterText({ text, speed = 50 }: { text: string; speed?: num
     </span>
   );
 }
-export function TacticalButton({ 
-  children, 
-  className, 
+export function TacticalButton({
+  children,
+  className,
   variant = "default",
-  ...props 
-}: React.ButtonHTMLAttributes<HTMLButtonElement> & { variant?: "default" | "alert" }) {
+  ...props
+}: HTMLMotionProps<"button"> & { variant?: "default" | "alert" }) {
   return (
     <motion.button
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       className={cn(
         "relative px-6 py-2 font-mono uppercase tracking-widest border-2 transition-colors overflow-hidden group",
-        variant === "default" 
-          ? "border-terminal-green text-terminal-green hover:bg-terminal-green hover:text-background" 
+        variant === "default"
+          ? "border-terminal-green text-terminal-green hover:bg-terminal-green hover:text-background"
           : "border-alert-red text-alert-red hover:bg-alert-red hover:text-white",
         className
       )}
       {...props}
     >
       <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-200" />
+      {/* Scanline hover effect */}
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-white/40 -translate-y-full group-hover:animate-scanline-scroll pointer-events-none opacity-0 group-hover:opacity-100" />
       <span className="relative z-10">{children}</span>
     </motion.button>
   );
