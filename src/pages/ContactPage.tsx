@@ -4,9 +4,17 @@ import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { TacticalButton, GlitchText } from "@/components/ui/retro-effects";
+import { TacticalButton } from "@/components/ui/retro-effects";
 import { Terminal, Send, ShieldAlert } from "lucide-react";
+import { toast } from "@/components/ui/sonner";
 export function ContactPage() {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    toast.success("ENCRYPTION_LINK_ESTABLISHED", {
+      description: "DATA_UPLOAD_COMPLETE // STATUS: SECURE",
+      className: "font-mono uppercase text-xs border-2 border-terminal-green bg-background text-terminal-green",
+    });
+  };
   return (
     <div className="min-h-screen bg-background text-terminal-green selection:bg-terminal-green selection:text-background crt-flicker">
       <Navbar />
@@ -26,7 +34,7 @@ export function ContactPage() {
                   <img
                     src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=800&auto=format&fit=crop"
                     alt="Satellite Map"
-                    className="w-full h-full object-cover opacity-30 grayscale contrast-150"
+                    className="w-full h-full object-cover opacity-20 grayscale contrast-150"
                   />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-16 h-16 border-2 border-alert-red animate-ping rounded-full" />
@@ -60,18 +68,18 @@ export function ContactPage() {
                 <Terminal size={24} />
                 <h2 className="text-2xl font-display uppercase tracking-widest">Input Transmission</h2>
               </div>
-              <form className="space-y-6 font-mono text-sm" onSubmit={(e) => e.preventDefault()}>
+              <form className="space-y-6 font-mono text-sm" onSubmit={handleSubmit}>
                 <div className="space-y-2">
                   <label className="text-[10px] uppercase font-bold text-muted-foreground tracking-widest">Operative Identity</label>
-                  <Input className="bg-terminal-dim/20 border-terminal-green/30 rounded-none focus-visible:ring-1 focus-visible:ring-terminal-green border-2 py-6 text-white" placeholder="NAME_REQUIRED_" />
+                  <Input required className="bg-terminal-dim/20 border-terminal-green/30 rounded-none focus-visible:ring-1 focus-visible:ring-terminal-green border-2 py-6 text-white placeholder:opacity-20" placeholder="NAME_REQUIRED_" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] uppercase font-bold text-muted-foreground tracking-widest">Return Frequency</label>
-                  <Input className="bg-terminal-dim/20 border-terminal-green/30 rounded-none focus-visible:ring-1 focus-visible:ring-terminal-green border-2 py-6 text-white" placeholder="SECURE_EMAIL_REQUIRED_" />
+                  <Input required type="email" className="bg-terminal-dim/20 border-terminal-green/30 rounded-none focus-visible:ring-1 focus-visible:ring-terminal-green border-2 py-6 text-white placeholder:opacity-20" placeholder="SECURE_EMAIL_REQUIRED_" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] uppercase font-bold text-muted-foreground tracking-widest">Mission Type</label>
-                  <Select>
+                  <Select required>
                     <SelectTrigger className="bg-terminal-dim/20 border-terminal-green/30 rounded-none focus:ring-1 focus:ring-terminal-green border-2 h-12 uppercase text-xs text-white">
                       <SelectValue placeholder="SELECT_TYPE_" />
                     </SelectTrigger>
@@ -85,10 +93,10 @@ export function ContactPage() {
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] uppercase font-bold text-muted-foreground tracking-widest">Briefing Details</label>
-                  <Textarea className="bg-terminal-dim/20 border-terminal-green/30 rounded-none min-h-[150px] focus-visible:ring-1 focus-visible:ring-terminal-green border-2 text-white p-4" placeholder="ENCRYPTED_MESSAGE_PAYLOAD_" />
+                  <Textarea required className="bg-terminal-dim/20 border-terminal-green/30 rounded-none min-h-[150px] focus-visible:ring-1 focus-visible:ring-terminal-green border-2 text-white p-4 placeholder:opacity-20" placeholder="ENCRYPTED_MESSAGE_PAYLOAD_" />
                 </div>
                 <div className="pt-6">
-                  <TacticalButton className="w-full py-4 flex items-center justify-center gap-3 text-lg h-16">
+                  <TacticalButton type="submit" className="w-full py-4 flex items-center justify-center gap-3 text-lg h-16">
                     <Send size={20} />
                     SEND TRANSMISSION_
                   </TacticalButton>

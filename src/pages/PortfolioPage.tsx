@@ -42,8 +42,8 @@ export function PortfolioPage() {
                       <h4 className="text-white uppercase border-b border-terminal-green/10 pb-2 italic text-xs font-bold">Objectives</h4>
                       <ul className="list-none space-y-2 opacity-70 uppercase text-[10px]">
                         {item.objectives.map((obj, i) => (
-                          <li key={i} className="flex gap-2">
-                            <span className="text-terminal-green">���</span> {obj}
+                          <li key={i} className="flex gap-2 items-center">
+                            <span className="text-terminal-green font-bold text-[12px]">></span> {obj}
                           </li>
                         ))}
                       </ul>
@@ -63,7 +63,7 @@ export function PortfolioPage() {
                   <div className="pt-4">
                     <div className="aspect-video bg-black border border-terminal-green/20 flex items-center justify-center relative overflow-hidden group-hover:border-terminal-green transition-colors">
                       <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,65,0.05)_1px,transparent_1px)] bg-[size:100%_4px] pointer-events-none" />
-                      <div className="text-[9px] uppercase opacity-40 animate-pulse font-mono font-bold tracking-tighter">SATELLITE_FEED_OFFLINE // SIG_LOSS_04</div>
+                      <div className="text-[9px] uppercase opacity-40 animate-pulse font-mono font-bold tracking-tighter text-glow">SATELLITE_FEED_OFFLINE // SIG_LOSS_04</div>
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-terminal-green/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                     </div>
                   </div>

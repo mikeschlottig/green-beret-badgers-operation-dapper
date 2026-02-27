@@ -47,11 +47,11 @@ export function AboutPage() {
             </div>
             <div className="space-y-12">
               <h2 className="text-3xl font-display uppercase tracking-widest italic border-b border-terminal-green/30 pb-4">Tactical History</h2>
-              <div className="relative pl-10 space-y-12 before:absolute before:left-0 before:top-0 before:w-[2px] before:h-full before:bg-terminal-green/20">
+              <div className="relative pl-10 space-y-12 before:absolute before:left-0 before:top-4 before:w-[2px] before:h-full before:bg-terminal-green/20">
                 {HISTORY.map((item, idx) => (
                   <div key={idx} className="relative">
-                    <div className="absolute -left-[49px] top-1.5 w-4 h-4 bg-background border-2 border-terminal-green rotate-45 z-10" />
-                    <div className="text-2xl font-display mb-2 text-white italic">{item.year}</div>
+                    <div className="absolute -left-[49px] top-2.5 w-4 h-4 bg-background border-2 border-terminal-green rotate-45 z-10 shadow-[0_0_8px_rgba(0,255,65,0.4)]" />
+                    <div className="text-2xl font-display mb-2 text-white italic drop-shadow-[0_0_4px_rgba(255,255,255,0.4)]">{item.year}</div>
                     <p className="font-mono text-sm opacity-80 uppercase leading-relaxed border-l border-terminal-green/10 pl-4 py-1">{item.event}</p>
                   </div>
                 ))}
