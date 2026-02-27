@@ -51,12 +51,18 @@ export function ServicesPage() {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: idx * 0.1 }}
-                className="bg-background p-12 space-y-8 group hover:bg-terminal-dim/5 transition-colors relative overflow-hidden"
+                className="bg-background p-12 space-y-8 group hover:bg-terminal-dim/10 transition-colors relative overflow-hidden border-r border-b border-terminal-green/10"
               >
+                {/* Background Data Scrolling Effect */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-[0.03] transition-opacity duration-700 pointer-events-none font-mono text-[10px] break-all leading-none p-4">
+                  {Array.from({ length: 15 }).map(() => (Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0')).join(' ')}
+                </div>
+
                 <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity font-mono text-4xl font-bold">
                   0{idx + 1}
                 </div>
-                <div className="text-terminal-green group-hover:scale-110 transition-transform duration-300 w-fit aspect-square flex items-center justify-center">
+                <div className="relative text-terminal-green group-hover:scale-110 transition-transform duration-300 w-fit aspect-square flex items-center justify-center p-4 border border-terminal-green/10">
+                  <div className="absolute inset-0 bg-terminal-green/5 opacity-0 group-hover:opacity-100 group-hover:animate-spin-slow transition-opacity rounded-full [background:conic-gradient(from_0deg,rgba(0,255,65,0.2),transparent_90deg)]" />
                   {service.icon}
                 </div>
                 <div className="space-y-4">

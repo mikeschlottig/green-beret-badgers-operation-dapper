@@ -27,8 +27,11 @@ export function HomePage() {
           </Link>
         </div>
         <Testimonials />
-        <Operations />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 mb-24 flex justify-center">
+        <div className="relative">
+          <div className="absolute inset-0 bg-terminal-green/5 pointer-events-none opacity-0 hover:opacity-100 transition-opacity duration-1000 z-0" />
+          <Operations />
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 flex justify-center border-t border-terminal-green/10">
           <Link to="/portfolio">
             <TacticalButton variant="alert">Access Mission Reports_</TacticalButton>
           </Link>
