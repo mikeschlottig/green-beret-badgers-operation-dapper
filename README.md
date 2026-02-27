@@ -1,6 +1,6 @@
 # Cloudflare Vite React Starter
 
-[cloudflarebutton]
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/mikeschlottig/green-beret-badgers-operation-dapper)
 
 A modern, production-ready React SPA starter template optimized for Cloudflare Workers and Pages. Built with Vite for lightning-fast development, Shadcn UI for beautiful components, and React Router for client-side routing. Includes full error handling, theming, and a robust development workflow.
 
@@ -118,7 +118,7 @@ bun run deploy
 
 Or use the dashboard:
 
-[cloudflarebutton]
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/mikeschlottig/green-beret-badgers-operation-dapper)
 
 **Configuration**: `wrangler.jsonc` pre-configured for SPA assets + API proxying.
 
