@@ -43,7 +43,7 @@ export function PortfolioPage() {
                       <ul className="list-none space-y-2 opacity-70 uppercase text-[10px]">
                         {item.objectives.map((obj, i) => (
                           <li key={i} className="flex gap-2 items-center">
-                            <span className="text-terminal-green font-bold text-[12px]">></span> {obj}
+                            <span className="text-terminal-green font-bold text-[12px]">▶</span> {obj}
                           </li>
                         ))}
                       </ul>
